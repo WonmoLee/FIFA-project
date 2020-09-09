@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title layout:title-pattern="$CONTENT_TITLE :: $DECORATOR_TITLE">축구정보 사이트</title>
+</head>
+<body>
+<th:block th:replace="layout/header"></th:block>
+	<section>
+		<form action="/teamSignup" method="post">
+			<label>팀명 : <input type="text" name="teamName"/></label>
+			<button type="submit">등록하기</button>
+		</form>
+	</section>
+</body>
+</html>

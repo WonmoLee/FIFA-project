@@ -1,0 +1,92 @@
+/* 공통 */
+li, a{
+	list-style: none;
+	text-decoration: none;
+}
+
+/* header */
+header {
+	margin: 30px 180px 30px 150px;
+	display: flex;
+}
+
+header h1 a img {
+	width: 100px;
+	height: 50px;
+}
+
+header nav {
+	width: 80%;
+	margin-left: 10%
+}
+
+header nav ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+header nav ul li {
+	margin-top: 15px;
+}
+
+
+/* index의 section */
+.index__section h1 {
+	text-align: center;
+	font-size: 100px;
+	margin-top: 18%;
+}
+
+
+/* teamList의 section */
+.teamList__section {
+	margin: 100px 500px 0 600px;
+}
+
+.teamList__section table {
+	border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+.teamList__section table tr th, .teamList__section table tr td {
+	border: 1px solid;
+	border-color: #c0c0c0;
+	padding: 20px 79px 20px 79px;
+}
+
+
+/* stardiumList의 section */
+.stardiumList__section {
+	margin: 100px 300px 0 450px;
+}
+
+.stardiumList__section table {
+	border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+.stardiumList__section table tr th, .stardiumList__section table tr td {
+	border: 1px solid;
+	border-color: #c0c0c0;
+	padding: 20px 79px 20px 79px;
+}
+
+
+/* playerList의 section */
+.playerList__section {
+	margin: 100px 0 0 350px;
+}
+
+.playerList__section table {
+	border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+.playerList__section table tr th, .playerList__section table tr td {
+	border: 1px solid;
+	border-color: #c0c0c0;
+	padding: 20px 79px 20px 79px;
+}

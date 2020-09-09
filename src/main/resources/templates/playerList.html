@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title layout:title-pattern="$CONTENT_TITLE :: $DECORATOR_TITLE">축구정보 사이트</title>
+</head>
+<body>
+<th:block th:replace="layout/header"></th:block>
+	<section>
+		<div class="playerList__section">
+			<table>
+				<tr><th>등록번호</th><th>선수명</th><th>포지션</th><th>소속팀</th><th>비고</th></tr>
+				<tr th:each="player : ${playerList}">
+					<td th:text="${player.id}"></td><td th:text="${player.playerName}"></td><td th:text="${player.position}"></td><td th:text="${player.team.teamName}"></td><td><button>삭제</button></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+</body>
+</html>
