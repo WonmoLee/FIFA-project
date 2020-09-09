@@ -4,8 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soccer.info.model.Player;
 import com.soccer.info.repository.PlayerRepository;
@@ -40,6 +43,13 @@ public class PlayerController {
 		playerRepository.save(player);
 		log.info("등록된 선수정보 : " + player);
 		model.addAttribute("playerList", playerRepository.findAll());
+		System.out.println(model);
 		return "playerList";
+	}
+	
+	@DeleteMapping("/playerDelete")
+	public @ResponseBody String playerDelete(@RequestBody Player player) {
+		playerRepository.deleteById(player.getId());
+		return "성공";
 	}
 }

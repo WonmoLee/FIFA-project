@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title layout:title-pattern="$CONTENT_TITLE :: $DECORATOR_TITLE">FIFA</title>
+</head>
+<body>
+<th:block th:replace="layout/header"></th:block>
+	<section>
+		<form action="/stardiumSignup" method="post">
+			<label>경기장명 : <input type="text" name="stardiumName"/></label>
+			<select name="team">
+				<option value="" selected="selected">팀명을 선택해주세요.</option>
+				<option th:each="team : ${teamList}" th:value="${team.id}" th:text="${team.teamName}"></option>
+			</select>
+			<button type="submit">등록하기</button>
+		</form>
+	</section>
+</body>
+</html>

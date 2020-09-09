@@ -14,14 +14,20 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 
 
-@Data
+@Getter
+@Setter
+@ToString(exclude = {"stardium"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -34,8 +40,13 @@ public class Team {
 	
 	private String teamName;
 	
-	@OneToMany(mappedBy = "team", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "team", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"team"})
 	private List<Stardium> stardium;
+	
+	@OneToMany(mappedBy = "team", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("team")
+	private List<Player> players;
 	
 	@CreationTimestamp
 	private Timestamp createDate;

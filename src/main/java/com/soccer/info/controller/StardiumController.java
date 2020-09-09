@@ -4,8 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soccer.info.model.Stardium;
 import com.soccer.info.repository.StardiumRepository;
@@ -41,6 +44,12 @@ public class StardiumController {
 		log.info("등록된 경기장정보 : " + stardium);
 		model.addAttribute("stardiumList", stardiumRepository.findAll());
 		return "stardiumList";
+	}
+	
+	@DeleteMapping("/stardiumDelete")
+	public @ResponseBody String stardiumDelete(@RequestBody Stardium stardium) {
+		stardiumRepository.deleteById(stardium.getId());
+		return "성공";
 	}
 	
 }

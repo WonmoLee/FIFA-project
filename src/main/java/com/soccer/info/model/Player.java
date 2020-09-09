@@ -12,12 +12,20 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+
+
+@Getter
+@Setter
+@ToString(exclude = {"team"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -34,6 +42,7 @@ public class Player {
 	
 	@ManyToOne
 	@JoinColumn(name="teamId")
+	@JsonIgnoreProperties({"stardium"})
 	private Team team;
 	
 	@CreationTimestamp

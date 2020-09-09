@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<title layout:title-pattern="$CONTENT_TITLE :: $DECORATOR_TITLE">FIFA</title>
+</head>
+<body>
+<th:block th:replace="layout/header"></th:block>
+	<section>
+		<div class="playerList__section">
+			<table>
+				<tr><th>포지션</th><th>팀명</th><th>팀명</th><th>팀명</th></tr>
+				<tr th:each="player : ${playerList}">
+					<td th:text="${player.id}"></td><td th:text="${player.playerName}"></td><td th:text="${player.position}"></td><td th:text="${player.team.teamName}"></td><td><button>삭제</button></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+</body>
+</html>
