@@ -2,6 +2,7 @@ package com.soccer.info.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.SqlResultSetMapping;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -44,12 +46,16 @@ import lombok.ToString;
 				"max(if(teamId=4, playerName, \"\")) \"Barcelona\",\r\n" + 
 				"max(if(teamId=7, playerName, \"\")) \"RealMadrid\"\r\n" + 
 				"from player\r\n" + 
+				"WHERE player.teamId = team.id " + 
+        		"	AND player.id NOT IN (SELECT player.id " + 
+        		"							FROM player, retiredplayer " + 
+        		"							WHERE retiredplayer.playerId = player.id) " + 
 				"group by position;",
 		resultSetMapping = "playerByPosition")
 
 @Getter
 @Setter
-@ToString(exclude = {"team"})
+@ToString(exclude = {"team", "retiredPlayer"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -68,6 +74,10 @@ public class Player {
 	@JoinColumn(name="teamId")
 	@JsonIgnoreProperties({"stardium"})
 	private Team team;
+	
+	@OneToOne(mappedBy = "player", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"player"})
+	private RetiredPlayer retiredPlayer;
 	
 	@CreationTimestamp
 	private Timestamp createDate;

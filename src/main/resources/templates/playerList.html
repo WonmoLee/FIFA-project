@@ -12,9 +12,13 @@
 	<section>
 		<div class="playerList__section">
 			<table>
-				<tr><th>등록번호</th><th>선수명</th><th>포지션</th><th>소속팀</th><th>비고</th></tr>
-				<tr th:each="player : ${playerList}">
-					<td th:text="${player.id}"></td><td th:text="${player.playerName}"></td><td th:text="${player.position}"></td><td th:text="${player.team.teamName}"></td><td><button id="id" th:value="${player.id}" onclick="javascript:playerDelete()">삭제</button></td>
+				<tr><th>No</th><th>선수명</th><th>포지션</th><th>소속팀</th><th></th></tr>
+				<tr th:each="playerRankDto : ${playerRankDtoList}">
+					<td th:text="${playerRankDto.rank}"></td>
+					<td th:text="${playerRankDto.player.playerName}"></td>
+					<td th:text="${playerRankDto.player.position}"></td>
+					<td th:text="${playerRankDto.player.team.teamName}"></td>
+					<td><button id="id" th:value="${playerRankDto.player.id}" onclick="javascript:playerDelete()">삭제</button></td>
 				</tr>
 			</table>
 		</div>

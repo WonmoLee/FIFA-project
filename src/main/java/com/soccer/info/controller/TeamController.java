@@ -1,5 +1,8 @@
 package com.soccer.info.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.soccer.info.dto.TeamRankDto;
 import com.soccer.info.model.Team;
 import com.soccer.info.repository.TeamRepository;
 
@@ -31,7 +35,16 @@ public class TeamController {
 	//팀 목록페이지 이동
 	@GetMapping("/teamList")
 	public String teamList(Model model) {
-		model.addAttribute("teamList", teamRepository.findAll());
+		List<Team> teams = teamRepository.findAll();
+		List<TeamRankDto> teamRankDtoList = new ArrayList<>();
+		for (int i = 0; i < teams.size(); i++) {
+			TeamRankDto teamRankDto = TeamRankDto.builder()
+														.rank(i+1)
+														.team(teams.get(i))
+														.build();
+			teamRankDtoList.add(teamRankDto);
+		}
+		model.addAttribute("teamRankDtoList", teamRankDtoList);
 		return "teamList";
 	}
 	

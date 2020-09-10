@@ -1,5 +1,8 @@
 package com.soccer.info.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.soccer.info.dto.StardiumRankDto;
 import com.soccer.info.model.Stardium;
 import com.soccer.info.repository.StardiumRepository;
 import com.soccer.info.repository.TeamRepository;
@@ -34,7 +38,16 @@ public class StardiumController {
 	//스타디움 목록 페이지 이동
 	@GetMapping("/stardiumList")
 	public String stardiumList(Model model) {
-		model.addAttribute("stardiumList", stardiumRepository.findAll());
+		List<Stardium> stardiums = stardiumRepository.findAll();
+		List<StardiumRankDto> stardiumRankDtoList = new ArrayList<>();
+		for (int i = 0; i < stardiums.size(); i++) {
+			StardiumRankDto stardiumRankDto = StardiumRankDto.builder()
+														.rank(i+1)
+														.stardium(stardiums.get(i))
+														.build();
+			stardiumRankDtoList.add(stardiumRankDto);
+		}
+		model.addAttribute("stardiumRankDtoList", stardiumRankDtoList);
 		return "stardiumList";
 	}
 	

@@ -87,3 +87,7 @@ function playerDelete() {
 		
 	})
 }
+
+function retiredPlayer() {
+	
+}

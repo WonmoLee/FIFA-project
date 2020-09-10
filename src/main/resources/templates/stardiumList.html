@@ -12,9 +12,9 @@
 	<section>
 		<div class="stardiumList__section">
 			<table>
-				<tr><th>등록번호</th><th>경기장명</th><th>소유팀명</th><th>비고</th></tr>
-				<tr th:each="stardium : ${stardiumList}">
-					<td th:text="${stardium.id}"></td><td th:text="${stardium.stardiumName}"></td><td th:text="${stardium.team.teamName}"></td><td><button id="id" th:value="${stardium.id}" onclick="javascript:stardiumDelete()">삭제</button></td></td>
+				<tr><th>No</th><th>경기장명</th><th>소유팀명</th><th>비고</th></tr>
+				<tr th:each="stardiumRankDto : ${stardiumRankDtoList}">
+					<td th:text="${stardiumRankDto.rank}"></td><td th:text="${stardiumRankDto.stardium.stardiumName}"></td><td th:text="${stardiumRankDto.stardium.team.teamName}"></td><td><button id="id" th:value="${stardiumRankDto.stardium.id}" onclick="javascript:stardiumDelete()">삭제</button></td></td>
 				</tr>
 			</table>
 		</div>

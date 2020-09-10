@@ -11,9 +11,9 @@
 	<section>
 		<div class="teamList__section">
 			<table>
-				<tr><th>등록번호</th><th>팀명</th><th>비고</th></tr>
-				<tr th:each="team : ${teamList}">
-					<td th:text="${team.id}"></td><td th:text="${team.teamName}"></td><td><button id="id" th:value="${team.id}" onclick="javascript:teamDelete()">삭제</button></td>
+				<tr><th>No</th><th>팀명</th><th>비고</th></tr>
+				<tr th:each="teamRankDto : ${teamRankDtoList}">
+					<td th:text="${teamRankDto.rank}"></td><td th:text="${teamRankDto.team.teamName}"></td><td><button id="id" th:value="${teamRankDto.team.id}" onclick="javascript:teamDelete()">삭제</button></td>
 				</tr>
 			</table>
 		</div>

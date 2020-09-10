@@ -1,5 +1,8 @@
 package com.soccer.info.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.soccer.info.dto.PlayerRankDto;
 import com.soccer.info.model.Player;
 import com.soccer.info.repository.PlayerRepository;
 import com.soccer.info.repository.TeamRepository;
@@ -34,7 +38,16 @@ public class PlayerController {
 	//선수 목록페이지 이동
 	@GetMapping("/playerList")
 	public String playerList(Model model) {
-		model.addAttribute("playerList", playerRepository.findAll());
+		List<Player> players = playerRepository.findAll();
+		List<PlayerRankDto> playerRankDtoList = new ArrayList<>();
+		for (int i = 0; i < players.size(); i++) {
+			PlayerRankDto playerRankDto = PlayerRankDto.builder()
+														.rank(i+1)
+														.player(players.get(i))
+														.build();
+			playerRankDtoList.add(playerRankDto);
+		}
+		model.addAttribute("playerRankDtoList", playerRankDtoList);
 		return "playerList";
 	}
 	

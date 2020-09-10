@@ -4,6 +4,10 @@ li, a{
 	text-decoration: none;
 }
 
+section {
+	border-top: 1px solid;
+}
+
 /* header */
 header {
 	margin: 30px 180px 30px 150px;
@@ -76,7 +80,7 @@ header nav ul li {
 
 /* playerList의 section */
 .playerList__section {
-	margin: 100px 0 0 350px;
+	margin: 100px 0 100px 230px;
 }
 
 .playerList__section table {
@@ -90,3 +94,22 @@ header nav ul li {
 	border-color: #c0c0c0;
 	padding: 20px 79px 20px 79px;
 }
+
+
+/* retiredPlayerList의 section */
+.retiredPlayerList__section {
+	margin: 100px 0 0 120px;
+}
+
+.retiredPlayerList__section table {
+	border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+.retiredPlayerList__section table tr th, .retiredPlayerList__section table tr td {
+	border: 1px solid;
+	border-color: #c0c0c0;
+	padding: 20px 79px 20px 79px;
+}
+
