@@ -13,7 +13,6 @@ import com.soccer.info.model.PlayerByPosition;
 @Service
 public class PlayerService {
 
-	
 	@PersistenceContext
 	private EntityManager em;
 	

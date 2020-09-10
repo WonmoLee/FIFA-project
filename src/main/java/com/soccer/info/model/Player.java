@@ -16,7 +16,6 @@ import javax.persistence.SqlResultSetMapping;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.soccer.info.controller.PlayerByPositionController;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,12 +27,12 @@ import lombok.ToString;
 @SqlResultSetMapping(
 		name = "playerByPosition",
 		classes = @ConstructorResult(
-				targetClass = PlayerByPositionController.class,
+				targetClass = PlayerByPosition.class,
 				columns = {
 						@ColumnResult(name = "position", type = String.class),
-						@ColumnResult(name = "LS", type = String.class),
-						@ColumnResult(name = "ST", type = String.class),
-						@ColumnResult(name = "RS", type = String.class)
+						@ColumnResult(name = "PSG", type = String.class),
+						@ColumnResult(name = "Barcelona", type = String.class),
+						@ColumnResult(name = "RealMadrid", type = String.class)
 				})
 		)
 
@@ -41,9 +40,9 @@ import lombok.ToString;
 		name = "playerByPosition",
 		query = "select \r\n" + 
 				"position, \r\n" + 
-				"max(if(teamId=11, playerName, \"\")) \"파리생제르망\",\r\n" + 
-				"max(if(teamId=12, playerName, \"\")) \"바르셀로나\"\r\n" + 
-				"max(if(teamId=12, playerName, \"\")) \"레알마드리드\"\r\n" + 
+				"max(if(teamId=5, playerName, \"\")) \"PSG\",\r\n" + 
+				"max(if(teamId=4, playerName, \"\")) \"Barcelona\",\r\n" + 
+				"max(if(teamId=7, playerName, \"\")) \"RealMadrid\"\r\n" + 
 				"from player\r\n" + 
 				"group by position;",
 		resultSetMapping = "playerByPosition")

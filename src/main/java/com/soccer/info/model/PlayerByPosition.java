@@ -16,8 +16,8 @@ import lombok.ToString;
 public class PlayerByPosition {
 	
 	private String position;
-	private String 파리생제르망;
-	private String 바르셀로나;
-	private String 레알마드리드;
+	private String PSG;
+	private String Barcelona;
+	private String RealMadrid;
 	
 }

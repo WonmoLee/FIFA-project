@@ -12,9 +12,12 @@
 	<section>
 		<div class="playerList__section">
 			<table>
-				<tr><th>포지션</th><th>팀명</th><th>팀명</th><th>팀명</th></tr>
-				<tr th:each="player : ${playerList}">
-					<td th:text="${player.id}"></td><td th:text="${player.playerName}"></td><td th:text="${player.position}"></td><td th:text="${player.team.teamName}"></td><td><button>삭제</button></td>
+				<tr><th>포지션</th><th>파리생제르망</th><th>바르셀로나</th><th>레알마드리드</th></tr>
+				<tr th:each="playerByPosition : ${playerByPositionList}">
+					<td th:text="${playerByPosition.position}"></td>
+					<td th:text="${playerByPosition.PSG}"></td>
+					<td th:text="${playerByPosition.Barcelona}"></td>
+					<td th:text="${playerByPosition.RealMadrid}"></td>
 				</tr>
 			</table>
 		</div>
