@@ -10,39 +10,45 @@
 <body>
 <th:block th:replace="layout/header"></th:block>
 	<section>
-		<form action="/playerSignup" method="post">
-			<label>선수명 : <input type="text" name="playerName"/></label>
-			
-			<select name="position">
-				<option value="" selected="selected">포지션 선택</option>
-				<option value="LS">LS</option>
-				<option value="ST">ST</option>
-				<option value="RS">RS</option>
-				<option value="LF">LF</option>
-				<option value="CF">CF</option>
-				<option value="RF">RF</option>
-				<option value="CAM">CAM</option>
-				<option value="LWM">LWM</option>
-				<option value="LM">LM</option>
-				<option value="RM">RM</option>
-				<option value="RWM">RWM</option>
-				<option value="LCDM">LCDM</option>
-				<option value="CDM">CDM</option>
-				<option value="RCDM">RCDM</option>
-				<option value="LWB">LWB</option>
-				<option value="LB">LB</option>
-				<option value="CB">CB</option>
-				<option value="RB">RB</option>
-				<option value="RWB">RWB</option>
-				<option value="GK">GK</option>
-			</select>
-			
-			<select name="team">
-				<option value="" selected="selected">소속팀 선택</option>
-				<option th:each="team : ${teamList}" th:value="${team.id}" th:text="${team.teamName}"></option>
-			</select>
-			<button type="submit">등록하기</button>
-		</form>
+		<div class="playerSave__section">
+			<h1>선수등록 페이지</h1>
+			<form action="/playerSignup" method="post">
+				<p>선수명 : <input type="text" name="playerName"/></p>
+				
+				<p>포지션 : 
+					<select name="position">
+						<option value="" selected="selected">포지션 선택</option>
+						<option value="LS">LS</option>
+						<option value="ST">ST</option>
+						<option value="RS">RS</option>
+						<option value="LF">LF</option>
+						<option value="CF">CF</option>
+						<option value="RF">RF</option>
+						<option value="CAM">CAM</option>
+						<option value="LWM">LWM</option>
+						<option value="LM">LM</option>
+						<option value="RM">RM</option>
+						<option value="RWM">RWM</option>
+						<option value="LCDM">LCDM</option>
+						<option value="CDM">CDM</option>
+						<option value="RCDM">RCDM</option>
+						<option value="LWB">LWB</option>
+						<option value="LB">LB</option>
+						<option value="CB">CB</option>
+						<option value="RB">RB</option>
+						<option value="RWB">RWB</option>
+						<option value="GK">GK</option>
+					</select>
+				</p>
+				<p>소속팀 : 
+					<select name="team">
+						<option value="" selected="selected">소속팀 선택</option>
+						<option th:each="team : ${teamList}" th:value="${team.id}" th:text="${team.teamName}"></option>
+					</select>
+				</p>
+				<button type="submit">등록하기</button>
+			</form>
+		</div>
 	</section>
 </body>
 </html>

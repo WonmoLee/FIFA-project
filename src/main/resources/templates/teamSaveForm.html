@@ -10,10 +10,13 @@
 <body>
 <th:block th:replace="layout/header"></th:block>
 	<section>
-		<form action="/teamSignup" method="post">
-			<label>팀명 : <input type="text" name="teamName"/></label>
-			<button type="submit">등록하기</button>
-		</form>
+		<div class="teamSave__section">
+			<h1>팀등록 페이지</h1>
+			<form action="/teamSignup" method="post">
+				<p>팀명 : <input type="text" name="teamName"/></p>
+				<button type="submit">등록하기</button>
+			</form>
+		</div>
 	</section>
 </body>
 </html>

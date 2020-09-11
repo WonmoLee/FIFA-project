@@ -42,15 +42,151 @@ header nav ul li {
 }
 
 
+/* teamSaveForm의 section */
+.teamSave__section {
+	text-align: center;
+}
+
+.teamSave__section h1 {
+	font-size: 50px;
+	color: gray;
+}
+
+.teamSave__section p {
+	font-size: 30px;
+}
+
+.teamSave__section form {
+	margin-top: 200px;
+}
+
+.teamSave__section input {
+	width: 20%;
+	height: 30px;
+	vertical-align: bottom;
+}
+
+.teamSave__section button {
+	width: 25%;
+	height: 35px;
+	margin-top: 50px;
+}
+
+
+/* stardiumSaveForm의 section */
+.stardiumSave__section {
+	text-align: center;
+}
+
+.stardiumSave__section h1 {
+	font-size: 50px;
+	color: gray;
+}
+
+.stardiumSave__section p {
+	font-size: 30px;
+}
+
+.stardiumSave__section form {
+	margin-top: 200px;
+}
+
+.stardiumSave__section input {
+	width: 20%;
+	height: 30px;
+	vertical-align: bottom;
+}
+
+.stardiumSave__section p select {
+	width: 15%;
+	height: 30px;
+	vertical-align: bottom;
+}
+
+.stardiumSave__section button {
+	width: 25%;
+	height: 35px;
+	margin-top: 50px;
+}
+
+
+/* playerSaveForm의 section */
+.playerSave__section {
+	text-align: center;
+}
+
+.playerSave__section h1 {
+	font-size: 50px;
+	color: gray;
+}
+
+.playerSave__section p {
+	font-size: 30px;
+}
+
+.playerSave__section form {
+	margin-top: 150px;
+}
+
+.playerSave__section input {
+	width: 20%;
+	height: 30px;
+	vertical-align: bottom;
+}
+
+.playerSave__section p select {
+	width: 15%;
+	height: 30px;
+	vertical-align: bottom;
+}
+
+.playerSave__section button {
+	width: 25%;
+	height: 35px;
+	margin-top: 50px;
+}
+
+
+/* retiredPlayerSave의 section */
+.retiredPlayerSave__section {
+	text-align: center;
+	margin: 50px 0 100px 120px;
+}
+
+.retiredPlayerSave__section h1 {
+	font-size: 50px;
+	color: gray;
+}
+
+.retiredPlayerSave__section table {
+	border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+}
+
+.retiredPlayerSave__section table tr th, .retiredPlayerSave__section table tr td {
+	border: 1px solid;
+	border-color: #c0c0c0;
+	padding: 20px 79px 20px 79px;
+}
+
+
 /* teamList의 section */
 .teamList__section {
-	margin: 100px 500px 0 600px;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.teamList__section h1 {
+	font-size: 50px;
+	color: gray;
 }
 
 .teamList__section table {
 	border-collapse: collapse;
     font-size: 20px;
     text-align: center;
+    margin-left: 32%;
 }
 
 .teamList__section table tr th, .teamList__section table tr td {
@@ -62,13 +198,20 @@ header nav ul li {
 
 /* stardiumList의 section */
 .stardiumList__section {
-	margin: 100px 300px 0 450px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.stardiumList__section h1 {
+	font-size: 50px;
+	color: gray;
 }
 
 .stardiumList__section table {
 	border-collapse: collapse;
     font-size: 20px;
     text-align: center;
+    margin-left: 23%;
 }
 
 .stardiumList__section table tr th, .stardiumList__section table tr td {
@@ -80,13 +223,20 @@ header nav ul li {
 
 /* playerList의 section */
 .playerList__section {
-	margin: 100px 0 100px 230px;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.playerList__section h1 {
+	font-size: 50px;
+	color: gray;
 }
 
 .playerList__section table {
 	border-collapse: collapse;
     font-size: 20px;
     text-align: center;
+    margin-left: 17%;
 }
 
 .playerList__section table tr th, .playerList__section table tr td {
@@ -96,20 +246,68 @@ header nav ul li {
 }
 
 
-/* retiredPlayerList의 section */
-.retiredPlayerList__section {
-	margin: 100px 0 0 120px;
+/* playerByPositionList의 section */
+.playerByPositionList__section {
+	text-align: center;
+	margin-top: 50px;
 }
 
-.retiredPlayerList__section table {
+.playerByPositionList__section h1 {
+	font-size: 50px;
+	color: gray;
+}
+
+.playerByPositionList__section table {
 	border-collapse: collapse;
     font-size: 20px;
     text-align: center;
+    margin-left: 18%;
 }
 
-.retiredPlayerList__section table tr th, .retiredPlayerList__section table tr td {
+.playerByPositionList__section table tr th, .playerByPositionList__section table tr td {
 	border: 1px solid;
 	border-color: #c0c0c0;
 	padding: 20px 79px 20px 79px;
 }
 
+
+/* playerByTeamList의 section */
+.playerByTeamList__section {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.playerByTeamList__section h1 {
+	font-size: 50px;
+	color: gray;
+}
+
+.playerByTeamList__section div ul {
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 8%;
+}
+
+.playerByTeamList__section div ul li {
+	margin-right: 20px;	
+	border: 1px solid;
+	padding: 10px 20px 10px 20px;
+}
+
+.playerByTeamList__section div ul li a:hover{
+	color: #0000ff;
+	cursor: pointer;
+}
+
+.playerByTeamList__section table {
+	border-collapse: collapse;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.playerByTeamList__section table tr th, .playerByTeamList__section table tr td {
+	border: 1px solid;
+	border-color: #c0c0c0;
+	padding: 20px 79px 20px 79px;
+}

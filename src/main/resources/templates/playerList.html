@@ -11,6 +11,7 @@
 <th:block th:replace="layout/header"></th:block>
 	<section>
 		<div class="playerList__section">
+			<h1>선수목록 페이지</h1>
 			<table>
 				<tr><th>No</th><th>선수명</th><th>포지션</th><th>소속팀</th><th></th></tr>
 				<tr th:each="playerRankDto : ${playerRankDtoList}">

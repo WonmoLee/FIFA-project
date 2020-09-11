@@ -10,14 +10,19 @@
 <body>
 <th:block th:replace="layout/header"></th:block>
 	<section>
-		<form action="/stardiumSignup" method="post">
-			<label>경기장명 : <input type="text" name="stardiumName"/></label>
-			<select name="team">
-				<option value="" selected="selected">팀명을 선택해주세요.</option>
-				<option th:each="team : ${teamList}" th:value="${team.id}" th:text="${team.teamName}"></option>
-			</select>
-			<button type="submit">등록하기</button>
-		</form>
+		<div class="stardiumSave__section">
+			<h1>스타디움등록 페이지</h1>
+			<form action="/stardiumSignup" method="post">
+				<p>경기장명 : <input type="text" name="stardiumName"/></p>
+				<p>팀명 : 
+					<select name="team">
+						<option value="" selected="selected">팀명을 선택해주세요.</option>
+						<option th:each="team : ${teamList}" th:value="${team.id}" th:text="${team.teamName}"></option>
+					</select>
+				</p>
+				<button type="submit">등록하기</button>
+			</form>
+		</div>
 	</section>
 </body>
 </html>
