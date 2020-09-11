@@ -42,10 +42,10 @@ import lombok.ToString;
 		name = "playerByPosition",
 		query = "select \r\n" + 
 				"position, \r\n" + 
-				"max(if(teamId=5, playerName, \"\")) \"PSG\",\r\n" + 
-				"max(if(teamId=4, playerName, \"\")) \"Barcelona\",\r\n" + 
-				"max(if(teamId=7, playerName, \"\")) \"RealMadrid\"\r\n" + 
-				"from player\r\n" + 
+				"max(if(teamId=11, playerName, \"\")) \"PSG\",\r\n" + 
+				"max(if(teamId=12, playerName, \"\")) \"Barcelona\",\r\n" + 
+				"max(if(teamId=13, playerName, \"\")) \"RealMadrid\"\r\n" + 
+				"from player, team\r\n" + 
 				"WHERE player.teamId = team.id " + 
         		"	AND player.id NOT IN (SELECT player.id " + 
         		"							FROM player, retiredplayer " + 

@@ -31,6 +31,7 @@ public class RetiredPlayerController {
 	
 	@PostMapping("/retiredSignup")
 	public String retiredSignup(Model model, RetiredPlayer retiredPlayer) {
+		System.out.println(retiredPlayer);
 		retiredPlayerRepository.save(retiredPlayer);
 		List<Player> players = playerRepository.findAll();
 		List<PlayerRankDto> playerRankDtoList = new ArrayList<>();
